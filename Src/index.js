@@ -19,9 +19,6 @@ app.use(function(err,req,res,next){
     });
     }
 );
-// start server
-app.listen(3000);
-console.log('server start');
 
 
 
@@ -48,6 +45,9 @@ function getIP() {
 // app to get IP addresses
 app.get('/',function(req,res){
     var ip = getIP();
+    res.send(`<h1> hello ${ip}</h1>`)
 });
 
 
+const PORT = process.env.PORT || 5000
+app.listen(PORT , ()=> console.log(`server start at port ${PORT}`));
